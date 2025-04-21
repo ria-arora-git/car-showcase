@@ -5,6 +5,8 @@ import Footer from './Footer';
 import Search from './Search';
 import CustomFilter from './CustomFilter';
 import SearchManufacturer  from './SearchManufacturer';
+import CarCard from './CarCard';
+
 
 
 export {
@@ -15,4 +17,5 @@ export {
     Search,
     CustomFilter,
     SearchManufacturer,
+    CarCard,
 }
