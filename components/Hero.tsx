@@ -7,8 +7,8 @@ const Hero = () => {
   const handleScroll = ()=>{}
 
   return (
-    <div className='flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto'>
-      <div className='flex-1 pt-36 padding-x pl-10'>
+    <div className='flex xl:flex-row flex-col gap-5 relative max-w-[1440px] w-screen'>
+      <div className='flex-1 pt-36 padding-x'>
         <h1 className='2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold '>
           Find, Book or Rent a Car - Quickly and Easily!
         </h1>
