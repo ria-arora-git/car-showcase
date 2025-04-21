@@ -6,10 +6,10 @@ import Search from "@/components/Search";
 
 export default function Home() {
   return (
-   <main className="overflow-hidden">
+   <main className="">
       <Hero />
 
-      <div className="mt-12 padding-x padding-y max-width" id="discover">
+      <div className="mt-12 pl-10 max-width" id="discover">
         <div className="flex flex-col items-start justify-start gap-y-2.5 text-black-100">
           <h1 className="text-4xl font-extrabold ">Car Catalogue</h1>
           <p>Explore the Cars you might like </p>
