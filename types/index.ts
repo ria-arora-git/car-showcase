@@ -6,6 +6,9 @@ export interface CustomButtonProps {
   containerStyle?: string;
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   btnType?: 'button' | 'submit' | 'reset' | undefined;
+  textstyles?: string;
+  rightIcon?: string;
+  isDisabled?: boolean;
 }
 
 export interface SearchManufacturerProps {
@@ -13,8 +16,8 @@ export interface SearchManufacturerProps {
     setManufacturer: (Manufacturer: string) => void;
 } 
 
-export interface CarCardProps {
-    city_mpg:     number;         
+export interface CarProps {
+    city_mpg: number;         
     //  "this field is for premium subscribers only"
     class: string;
     // combination_mpg:"this field is for premium subscribers only"

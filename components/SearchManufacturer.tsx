@@ -6,7 +6,7 @@ import Image from 'next/image';
 import React, { Fragment, useState } from 'react'
 
 
-const SearchManufacturer: React.FC<SearchManufacturerProps> = ({ setManufacturer , Manufacturer }: SearchManufacturerProps) => {
+const SearchManufacturer = ({ setManufacturer , Manufacturer }: SearchManufacturerProps) => {
     const [query, setquery] = useState('');
 
     const filteredManufacturers = query === '' ?  manufacturers : manufacturers.filter((item) => item.toLowerCase().replace(/\s+/g, '').includes(query.toLowerCase().replace(/\s+/g, ''))
