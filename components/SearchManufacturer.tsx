@@ -6,7 +6,7 @@ import Image from 'next/image';
 import React, { Fragment, useState } from 'react'
 
 
-const SearchManufacturer = ({ setManufacturer , Manufacturer }: SearchManufacturerProps) => {
+const SearchManufacturer = ({ selected , setSelected   }: SearchManufacturerProps) => {
     const [query, setquery] = useState('');
 
     const filteredManufacturers = query === '' ?  manufacturers : manufacturers.filter((item) => item.toLowerCase().replace(/\s+/g, '').includes(query.toLowerCase().replace(/\s+/g, ''))
@@ -14,7 +14,7 @@ const SearchManufacturer = ({ setManufacturer , Manufacturer }: SearchManufactur
 
   return (
     <div className='flex-1 max-sm:w-full flex justify-start items-center'>
-        <Combobox value={Manufacturer} onChange={setManufacturer} >
+        <Combobox value={selected} onChange={setSelected} >
             <div className='relative w-full '>
                 <ComboboxButton className="absolute top-[14px]">
                     <Image src={"/car-logo.svg"} width={20} height={20} className='ml-4' alt='Car Logo'/>

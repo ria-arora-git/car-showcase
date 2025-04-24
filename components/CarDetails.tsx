@@ -1,19 +1,38 @@
 'use client';
 import {  CarProps } from '@/types';
+import { generateCarImageUrl } from '@/utils';
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 import Image from 'next/image';
 import React, { Fragment } from 'react'
 
+const imaginApiKey = process.env.NEXT_PUBLIC_IMAGIN_API_KEY;
+
+const CarDetailsImage = ({ car, angle }: { car: CarProps; angle: string }) => (
+  <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+    <Image
+      src={`https://cdn.imagin.studio/getimage?customer=${imaginApiKey}&make=${
+        car.make
+      }&modelFamily=${
+        car.model.split(" ")[0]
+      }&zoomType=fullscreen&zoomLevel=30&modelYear=${car.year}&angle=${angle}`}
+      alt="car model"
+      fill
+      priority
+      className="object-contain"
+    />
+  </div>
+);
 
 interface CarDetailsProps{
     isOpen: boolean;
     closeModel: () => void;
     car: CarProps;
+
 }
 
 const CarDetails= ({isOpen , closeModel , car }: CarDetailsProps) => {
   return (
-    <> 
+    <>  
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as='div' className={'relative z-10 '} onClose={closeModel}>
           <TransitionChild as={Fragment} enter='ease-out duration-300' enterFrom='opactiy-0' enterTo='opacity-100' leave='ease-in duration-200' leaveFrom='opacity-100' leaveTo='opacity-0'>
@@ -31,18 +50,18 @@ const CarDetails= ({isOpen , closeModel , car }: CarDetailsProps) => {
 
                   <div className='flex-1 flex flex-col gap-3 '>
                     <div className='relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg '>
-                      <Image src={'/hero.png'} alt='car model' fill priority className='object-contain' />
+                      <Image src={generateCarImageUrl(car , )} alt='car model' fill priority className='object-contain' />
                     </div>
 
                     <div className='flex gap-3'>
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg '>
-                        <Image src={'/hero.png'} alt='car model' fill priority className='object-contain' />
+                        <Image src={generateCarImageUrl(car , '29')} alt='car model' fill priority className='object-contain' />
                       </div>
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg '>
-                        <Image src={'/hero.png'} alt='car model' fill priority className='object-contain' />
+                        <Image src={generateCarImageUrl(car , '33')} alt='car model' fill priority className='object-contain' />
                       </div>
                       <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg '>
-                        <Image src={'/hero.png'} alt='car model' fill priority className='object-contain' />
+                        <Image src={generateCarImageUrl(car , '13')} alt='car model' fill priority className='object-contain' />
                       </div>
                     </div>
                   </div>
